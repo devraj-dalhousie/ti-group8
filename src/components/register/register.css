@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h2 {
+    text-align: center;
+}
+
+.registration-form {
+    width: 400px;
+    position: relative;
+}
+
+.user-input {
+    margin: 12px;
+    padding: 5px;
+    position: relative;
+}
+
+.user-input input {
+    border: 2px solid;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.user-input input:focus {
+    outline: aqua;
+}
+
+.user-input label {
+    display: block;
+}
+
+.user-input small {
+    visibility: hidden;
+    color: red;
+}
+
+.user-input.error small {
+    visibility: visible;
+}
+
+.user-input.success small {
+    visibility: hidden;
+}
+
+.submit-button input {
+    margin-left: 80px;
+    position: center;
+    width: 60%;
+    height: 35px;
+    background-color: grey;
+}
