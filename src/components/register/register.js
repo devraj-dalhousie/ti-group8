@@ -1,9 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
+import './register.css';
 
-import "./register.css";
-import Profile from "./profile";
-
-export class Register extends React.Component {
+export default class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {redirect: false};
@@ -23,7 +21,6 @@ export class Register extends React.Component {
 
     validateForm(event) {
         event.preventDefault();
-        //let histpry = useHistory();
         const fname = document.getElementById("fname");
         if (this.checkNotEmpty(fname.value) === false) {
             this.setError(fname, "First Name is a mandatory field.");
@@ -63,20 +60,11 @@ export class Register extends React.Component {
             this.removeError(password1);
             this.state.password1 = password1.value;
         }
-
-        const password2 = document.getElementById("password2");
-        if (this.checkNotEmpty(password2.value) === false) {
-            this.setError(password2, "Please confirm password");
-        } else if (password2.value !== password1.value) {
-            this.setError(password2, "Both password value should match");
-        } else {
-            this.removeError(password2);
-        }
     }
 
     setError(input, message) {
         const e = input.parentElement;
-        e.className = 'user-input error'
+        e.className = 'form-group error'
         const errMsg = e.querySelector('small');
         errMsg.innerText = message
         this.setState({redirect: false});
@@ -84,7 +72,7 @@ export class Register extends React.Component {
 
     removeError(input) {
         const e = input.parentElement;
-        e.className = 'user-input success'
+        e.className = 'form-group success'
         this.setState({redirect: true});
     }
 
@@ -114,45 +102,38 @@ export class Register extends React.Component {
     }
 
     render() {
-        return <>
-            <div>{!this.state.redirect ? (
-                <div class="registration-form">
-                    <h2>User Registration</h2>
-                    <form id="form" onSubmit={this.validateForm}>
-                        <div class="user-input">
-                            <label for="first-name">First Name:</label>
-                            <input type="text" id="fname" placeholder="Enter First Name" onChange={this.handleChange}/>
-                            <small>dummy_error_message</small>
-                        </div>
-                        <div className="user-input">
-                            <label htmlFor="last-name">Last Name:</label>
-                            <input type="text" id="lname" placeholder="Enter Last Name" onChange={this.handleChange}/>
-                            <small>dummy_error_message</small>
-                        </div>
-                        <div className="user-input">
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" placeholder="Enter Email address"
-                                   onChange={this.handleChange}/>
-                            <small>dummy_error_message</small>
-                        </div>
-                        <div className="user-input">
-                            <label for="password1">Password:</label>
-                            <input type="password" id="password1" placeholder="Enter password"
-                                   onChange={this.handleChange}/>
-                            <small>dummy_error_message</small>
-                        </div>
-                        <div className="user-input">
-                            <label for="password2">Confirm Password:</label>
-                            <input type="password" id="password2" placeholder="Confirm password"
-                                   onChange={this.handleChange}/>
-                            <small>dummy_error_message</small>
-                        </div>
-                        <div class="submit-button">
-                            <input type="submit" value="Submit"/>
-                        </div>
-                    </form>
-                </div>) : (<Profile fname={this.state.fname} lname={this.state.lname} email={this.state.email} />)}
-            </div>
-        </>
+        return (
+            <form onSubmit={this.validateForm}>
+                <h3>Register</h3>
+                <div className="form-group">
+                    <label>First name</label>
+                    <input type="text" id="fname" className="form-control" placeholder="First name" />
+                    <small>dummy_error_message</small>
+                </div>
+
+                <div className="form-group">
+                    <label>Last name</label>
+                    <input type="text" id="lname" className="form-control" placeholder="Last name" />
+                    <small>dummy_error_message</small>
+                </div>
+
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" className="form-control" placeholder="Enter email" />
+                    <small>dummy_error_message</small>
+                </div>
+
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password1" className="form-control" placeholder="Enter password" />
+                    <small>dummy_error_message</small>
+                </div>
+
+                <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
+                <p className="forgot-password text-right">
+                    Already registered <a href="#">log in?</a>
+                </p>
+            </form>
+        );
     }
 }

@@ -1,67 +1,24 @@
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-
-h2 {
-    text-align: center;
-}
-
-.login-form {
-    position: relative;
-    justify-content: center;
-    align-items: center;
-}
-
-.user-input {
-    margin: 50px;
-    padding: 10px;
-    position: relative;
-}
-
-.user-input input {
-    border: 2px solid;
-    border-radius: 5px;
-    display: block;
-    width: 100%;
-    padding: 12px;
-    font-size: 14px;
-}
-
-.user-input input:focus {
-    outline: aqua;
-}
-
-.user-input label {
+label, input {
     display: block;
 }
 
-.user-input small {
+label {
+    margin-top: 20px;
+}
+
+.form-group small {
     visibility: hidden;
     color: red;
 }
 
-.user-input.error small {
+.form-group.error small {
     visibility: visible;
 }
 
-.user-input.success small {
+.form-group.success small {
     visibility: hidden;
 }
 
-.submit-button input {
-    margin-left: 80px;
-    margin-top: 50px;
-    position: center;
-    width: 60%;
-    height: 35px;
-    background-color: grey;
-}
-
-#cred-error {
-    visibility: hidden;
-    color: red;
-    padding-left: 80px;
+.form-group.error input {
+    border-color: crimson;
 }

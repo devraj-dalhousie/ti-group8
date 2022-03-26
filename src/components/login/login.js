@@ -1,10 +1,7 @@
-import React from "react";
-import {Navigate} from 'react-router-dom';
-
-import "./login.css";
+import React, { Component } from "react";
+import './login.css'
 import axios from "axios";
-
-export class Login extends React.Component {
+export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {redirect: false, basicValidation: false};
@@ -30,7 +27,7 @@ export class Login extends React.Component {
             console.log("Basic validation failed.")
             return;
         }
-        this.authValidation();
+        //this.authValidation();
     }
 
     async authValidation() {
@@ -108,49 +105,52 @@ export class Login extends React.Component {
 
     setError(input, message) {
         const e = input.parentElement;
-        e.className = 'user-input error'
+        e.className = 'form-group error'
         const errMsg = e.querySelector('small');
         errMsg.innerText = message
+        errMsg.color='red'
         this.state.basicValidation = false;
     }
 
     removeError(input) {
         const e = input.parentElement;
-        e.className = 'user-input success'
+        e.className = 'form-group success'
         this.state.basicValidation = true;
     }
 
     checkNotEmpty(value) {
-        if (value.trim() === "") {
-            return false;
-        }
-        return true;
+        return value.trim() !== "";
+
     }
 
     render() {
-        console.log("First time: ", this.state.redirect);
-        if (this.state.redirect === true) {
-            return (<Navigate to={"/home"}/>)
-        }
-        return (<div className="login-form">
-            <h2>Login:</h2>
-            <form id="form" onSubmit={this.validateForm}>
-                <div className="user-input">
-                    <label htmlFor="email">Email:</label>
-                    <input type="text" id="email" placeholder="Enter your email" onChange={this.handleChange}/>
+        return (
+            <form onSubmit={this.validateForm}>
+                <h3>Log in</h3>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" className="form-control" placeholder="Enter email" />
                     <small>dummy_error_message</small>
                 </div>
-                <div className="user-input">
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" placeholder="Enter your password"
-                           onChange={this.handleChange}/>
+
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" className="form-control" placeholder="Enter password" />
                     <small>dummy_error_message</small>
                 </div>
-                <div className="submit-button">
-                    <input type="submit" value="Submit"/>
+
+                <div className="form-group">
+                    <div className="custom-control custom-checkbox">
+                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                    </div>
                 </div>
-                <strong id={"cred-error"}>Wrong username or password</strong>
+
+                <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
+                <p className="forgot-password text-right">
+                    Forgot <a href="#">password?</a>
+                </p>
             </form>
-        </div>);
+        );
     }
 }

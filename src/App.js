@@ -1,26 +1,41 @@
+import React from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {Register} from "./components/register/register";
-import {Login} from "./components/login/login";
-import Home from "./components/home/home";
-import {Component} from "react";
-import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
+import Login from "./components/login/login";
+import SignUp from "./components/register/register";
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <Router>
-                    <Routes>
-                        <Route exact path={"/"} element={<Login />}/>
-                        <Route exact path={"/login"} element={<Login />}/>
-                        <Route exact path={"/register"} element={<Register />}/>
-                        <Route exact path={"/home"} element={<Home />}/>
-                    </Routes>
-                </Router>
+function App() {
+    return (
+            <div className="App">
+                <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+                    <div className="container">
+                        <Link className="navbar-brand" to={"/sign-in"}>DietPlan</Link>
+                        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul className="navbar-nav ml-auto">
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/sign-in"}>Sign in</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div className="outer">
+                    <div className="inner">
+                        <Routes>
+                            <Route exact path='/' element={<Login />} />
+                            <Route path="/sign-in" element={<Login />} />
+                            <Route path="/sign-up" element={<SignUp />} />
+                        </Routes>
+                    </div>
+                </div>
             </div>
-        );
-    }
+    );
 }
 
 export default App;
