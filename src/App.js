@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Login from "./components/login/login";
 import SignUp from "./components/register/register";
+import Home from "./components/home/home";
+import About from "./components/about/about";
+import Contact from "./components/contact/contact";
 
 function App() {
     return (
@@ -15,10 +18,10 @@ function App() {
                         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link" to={"/sign-in"}>Sign in</Link>
+                                    <Link className="nav-link" to={"/about"}>About us</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
+                                    <Link className="nav-link" to={"/contact"}>Contact us</Link>
                                 </li>
                             </ul>
                         </div>
@@ -31,6 +34,9 @@ function App() {
                             <Route exact path='/' element={<Login />} />
                             <Route path="/sign-in" element={<Login />} />
                             <Route path="/sign-up" element={<SignUp />} />
+                            <Route path="/home" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/contact" element={<Contact />} />
                         </Routes>
                     </div>
                 </div>

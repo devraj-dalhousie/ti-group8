@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {Link, Navigate} from 'react-router-dom';
+
 import './login.css'
 import axios from "axios";
 export default class Login extends Component {
@@ -100,6 +102,19 @@ export default class Login extends Component {
             this.removeError(password);
             this.setState({"password": password.value});
         }
+        const top = document.getElementById("top");
+        if((email.value !== "" && password.value !== "") && email.value === 'admin@gmail.com' && password.value === 'admin123') {
+            this.removeError(password);
+            this.removeError(email);
+            this.removeError(top);
+            this.setState({"email": email.value});
+            this.setState({"password": password.value});
+            this.setState({redirect: true});
+        } else {
+            this.setState({redirect: false});
+            this.setError(top, "Invalid credentials.");
+        }
+
         return this.state.basicValidation;
     }
 
@@ -124,9 +139,17 @@ export default class Login extends Component {
     }
 
     render() {
+        if (this.state.redirect === true) {
+            return (<Navigate to={"/home"}/>)
+        }
         return (
             <form onSubmit={this.validateForm}>
                 <h3>Log in</h3>
+                <div className="form-group">
+                    <small id="top">
+                        Invalid credentials. Either email or password is wrong.
+                    </small>
+                </div>
                 <div className="form-group">
                     <label>Email</label>
                     <input type="email" id="email" className="form-control" placeholder="Enter email" />
@@ -150,6 +173,10 @@ export default class Login extends Component {
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
+                <p className="new-user text-right">
+                    New User? <Link to={"/sign-up"}>Sign up</Link>
+                </p>
+
             </form>
         );
     }
