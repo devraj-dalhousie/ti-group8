@@ -8,6 +8,8 @@ import SignUp from "./components/register/register";
 import Home from "./components/home/home";
 import About from "./components/about/about";
 import Contact from "./components/contact/contact";
+import Diet from "./components/diet/diet";
+import Fitness from "./components/fitness/fitness";
 
 function App() {
     return (
@@ -17,6 +19,12 @@ function App() {
                         <Link className="navbar-brand" to={"/sign-in"}>DietPlan</Link>
                         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul className="navbar-nav ml-auto">
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/diet"}>Diet</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/fitness"}>Fitness</Link>
+                                </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to={"/about"}>About us</Link>
                                 </li>
@@ -37,6 +45,8 @@ function App() {
                             <Route path="/home" element={<Home />} />
                             <Route path="/about" element={<About />} />
                             <Route path="/contact" element={<Contact />} />
+                            <Route path="/diet" element={<Diet />} />
+                            <Route path="/fitness" element={<Fitness />} />
                         </Routes>
                     </div>
                 </div>
