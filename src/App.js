@@ -40,6 +40,9 @@ function App() {
                                 <li className="nav-item">
                                     <Link className="nav-link" to={"/contact"}>Contact us</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/sign-in"}>Sign-in</Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
