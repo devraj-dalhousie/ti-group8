@@ -104,6 +104,7 @@ export default class SignUp extends Component {
 
     render() {
         return (
+            <div className={"register-form"}>
             <form onSubmit={this.validateForm}>
                 <h3>Register</h3>
                 <div className="form-group">
@@ -135,6 +136,7 @@ export default class SignUp extends Component {
                     Already registered? <Link to={"/sign-in"}>Sign in</Link>
                 </p>
             </form>
+            </div>
         );
     }
 }

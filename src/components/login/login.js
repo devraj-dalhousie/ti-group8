@@ -143,6 +143,7 @@ export default class Login extends Component {
             return (<Navigate to={"/home"}/>)
         }
         return (
+            <div className={"login-form"}>
             <form onSubmit={this.validateForm}>
                 <h3>Log in</h3>
                 <div className="form-group">
@@ -178,6 +179,7 @@ export default class Login extends Component {
                 </p>
 
             </form>
+            </div>
         );
     }
 }
