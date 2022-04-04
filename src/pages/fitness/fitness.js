@@ -55,7 +55,7 @@ class Fitness extends Component {
                                         <div className="custom-separator my-4 mx-auto bg-primary"></div>
                                         <h4>Circuit 1</h4>
                                         <ul className="list-unstyled text-small text-left">
-                                            <li className="mb-3">12 reps of Dumbbell Bench Press</li>
+                                            <li className="mb-3">12 reps of Dumbbell Bench</li>
                                             <li className="mb-3">12 reps of Dumbbell Row</li>
                                             <li className="mb-3">30 seconds plank</li>
                                         </ul>
@@ -127,10 +127,16 @@ class Fitness extends Component {
                                         <div className="custom-separator my-4 mx-auto bg-primary"></div>
                                         <h4>Circuit 1</h4>
                                         <ul className="list-unstyled text-small text-left">
-                                            <li className="mb-3">Take rest on Sunday</li>
+                                            <li className="mb-3">50 russian twists</li>
                                             <li className="mb-3">Brisk walk for 5000 steps</li>
+                                            <li className="mb-3">40 high knees</li>
                                         </ul>
                                         <hr/>
+                                        <h4>Circuit 2</h4>
+                                        <ul className="list-unstyled text-small text-left">
+                                            <li className="mb-3">10 standing calf rises</li>
+                                            <li className="mb-3">40 crunches</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
