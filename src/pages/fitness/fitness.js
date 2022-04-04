@@ -8,7 +8,16 @@ class Fitness extends Component {
             <div>
             <UserNavbar />
             <div className={"fitness-page"}>
-            <p>Fitness form...more to come.</p>
+                <h2>You have selected the plan as Weight-loss and Non-Vegetarian</h2>.
+                <h4>Based on your profile and plan, please follow the routine:</h4>
+                <div className="row">
+                    <div className="column">
+
+                    </div>
+                    <div className="column"></div>
+                    <div className="column"></div>
+                    <div className="column"></div>
+                </div>
             </div>
             </div>
         );
