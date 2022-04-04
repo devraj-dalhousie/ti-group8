@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import UserNavbar from '../../components/navBar/UserNavBar';
 import './home.css';
+import {Link} from "react-router-dom";
 
 class Home extends Component {
     render() {
@@ -12,6 +13,10 @@ class Home extends Component {
                 <br/>
                 We strive hard to keep you fit & healthy through a range of holistic offerings that include fitness and dietary program.
                 Now anyone can now stay healthy from the safety of their homes with our curated solution designed.
+                <br/>
+                We offer various paid programs which will keep to healthy and fit. See our plans here:
+                <br/>
+                <Link to={"/subscribe"}>See our plans</Link>
                 <br/>
                 #BeFitBeHealthy
                 </div>

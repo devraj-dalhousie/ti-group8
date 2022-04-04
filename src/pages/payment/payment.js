@@ -7,7 +7,6 @@ export default class Payment extends Component {
         return (
             <div>
                 <UserNavbar />
-
             <div className="payment-page">
                 <div className="page-header">
                     <h1>Pay using credit card or debit card </h1>
