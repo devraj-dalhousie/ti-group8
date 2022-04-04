@@ -3,12 +3,6 @@ import {Link} from "react-router-dom";
 import './profile.css';
 import UserNavbar from '../../components/navBar/UserNavBar';
 
-/*
-Age,
-Smoke
-Drink
-
- */
 class Profile extends Component {
     render() {
         return (
@@ -63,22 +57,19 @@ class Profile extends Component {
                         <input type="radio" name="smoke" id="occ" value="occ"/>
                     </div>
                     <hr/>
-                    <div className={"form-group"}>
-                        <label>What are you more interested in?:</label>
-                        <br/>
-
-                        <label htmlFor="int-diet"> Interested in balanced diet
-                            <input type={"checkbox"} id={"int-diet"} name={"int-diet"} value={"Diet"} />
-                        </label><br/>
-
-                        <label htmlFor="int-weightloss"> Interested in weight loss
-                            <input type={"checkbox"} id={"int-weightloss"} name={"int-weightloss"} value={"Weight loss"} />
-                        </label><br/>
-
-                        <label htmlFor="int-fitness"> Interested in overall fitness
-                            <input type={"checkbox"} id={"int-fitness"} name={"int-fitness"} value={"Fitness"} />
-                        </label><br/>
+                    <div className="drink-input">
+                        <label>Please select health goals?
+                            <label htmlFor="yes">Weight loss with vegetarian diet</label>
+                            <input type="radio" name="drink" id="yes" value="yes" />
+                            <label htmlFor="yes">Weight loss with non-vegetarian diet</label>
+                            <input type="radio" name="drink" id="yes" value="yes" />
+                            <label htmlFor="yes">Weight gain with vegetarian diet</label>
+                            <input type="radio" name="drink" id="yes" value="yes" />
+                            <label htmlFor="yes">Weight gain with non-vegetarian diet</label>
+                            <input type="radio" name="drink" id="yes" value="yes" />
+                        </label>
                     </div>
+                    <hr/>
                     <button type="submit" className="btn btn-dark btn-lg btn-block">Submit</button>
                 </form>
             </div>
