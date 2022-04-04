@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import {Link, useParams} from 'react-router-dom';
 import './payment.css';
 
 export default class Payment extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="payment-page">
                 <div className="page-header">
                     <h1>Pay using credit card or debit card </h1>
                 </div>
@@ -14,9 +15,9 @@ export default class Payment extends Component {
                             <div className="panel panel-default">
                                 <div className="panel-heading">
                                     <div className="row">
-                                        <h3 className="text-center">Payment Details</h3>
+                                        <h5 className="text-center">Payment details:</h5>
                                         <img className="img-responsive cc-img"
-                                             src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"/>
+                                             src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png" alt={"credit-card-icons"}/>
                                     </div>
                                 </div>
                                 <div className="panel-body">
@@ -37,8 +38,8 @@ export default class Payment extends Component {
                                         <div className="row">
                                             <div className="col-xs-7 col-md-7">
                                                 <div className="form-group">
-                                                    <label><span className="hidden-xs">EXPIRATION</span><span
-                                                        className="visible-xs-inline">EXP</span> DATE</label>
+                                                    <label><span
+                                                        className="visible-xs-inline">EXPIRATION</span> DATE</label>
                                                     <input type="tel" className="form-control" placeholder="MM / YY"/>
                                                 </div>
                                             </div>
@@ -63,8 +64,7 @@ export default class Payment extends Component {
                                 <div className="panel-footer">
                                     <div className="row">
                                         <div className="col-xs-12">
-                                            <button className="btn btn-warning btn-lg btn-block">Process payment
-                                            </button>
+                                            <button className="btn btn-warning btn-lg btn-block">Process payment</button>
                                         </div>
                                     </div>
                                 </div>
