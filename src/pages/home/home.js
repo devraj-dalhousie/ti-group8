@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
 import UserNavbar from '../../components/navBar/UserNavBar';
-
+import './home.css';
 
 class Home extends Component {
     render() {
         return (
             <div>
             <UserNavbar />
-            <div className={"recom"}>
-                <p>Here is your recommended diet plan:</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+            <div className={"home-page"}>
+                Hello, welcome to Admix Fitness –(Blending Workout and Dietary Regimes) home page.
+                <br/>
+                We strive hard to keep you fit & healthy through a range of holistic offerings that include fitness and dietary program.
+                Now anyone can now stay healthy from the safety of their homes with our curated solution designed.
+                <br/>
+                #BeFitBeHealthy
+                </div>
             </div>
         );
     }

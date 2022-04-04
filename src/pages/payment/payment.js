@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link, useParams} from 'react-router-dom';
 import './payment.css';
 
 export default class Payment extends Component {
