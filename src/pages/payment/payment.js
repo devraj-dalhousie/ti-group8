@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import './payment.css';
+import UserNavbar from "../../components/navBar/UserNavBar";
 
 export default class Payment extends Component {
     render() {
         return (
+            <div>
+                <UserNavbar />
+
             <div className="payment-page">
                 <div className="page-header">
                     <h1>Pay using credit card or debit card </h1>
@@ -71,6 +75,7 @@ export default class Payment extends Component {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

@@ -8,6 +8,17 @@
     transition: all .3s;
 }
 
+.container {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+}
+
+.container.row {
+    display: inline-block;
+}
+
 .rounded-lg {
     border-radius: 1rem !important;
 }
