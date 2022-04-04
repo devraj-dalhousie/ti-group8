@@ -86,7 +86,7 @@ class Diet extends Component {
                                     <hr/>
                                     <h4>Lunch</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Garden Omelet</li>
+                                        <li className="mb-3">Garden Omelet and Vegetable soup</li>
                                     </ul>
                                     <hr/>
                                     <h4>Dinner</h4>
@@ -112,8 +112,7 @@ class Diet extends Component {
                                     <div className="custom-separator my-4 mx-auto bg-primary"></div>
                                     <h4>Breakfast</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Protein smoothie</li>
-                                        <li className="mb-3">Greek yogurt parfait</li>
+                                        <li className="mb-3">Protein smoothie and Greek yogurt parfait</li>
                                     </ul>
                                     <hr/>
                                     <h4>Lunch</h4>
@@ -133,7 +132,7 @@ class Diet extends Component {
                                     <hr/>
                                     <h4>Snacks 2:</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Veggies with 1/4 cup hummus</li>
+                                        <li className="mb-3">Egg sandwich</li>
                                     </ul>
                                 </div>
                             </div>
@@ -143,8 +142,7 @@ class Diet extends Component {
                                     <div className="custom-separator my-4 mx-auto bg-primary"></div>
                                     <h4>Breakfast</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Protein smoothie</li>
-                                        <li className="mb-3">Avacado toast</li>
+                                        <li className="mb-3">Protein smoothie with Avacado toast</li>
                                     </ul>
                                     <hr/>
                                     <h4>Lunch</h4>
@@ -175,8 +173,7 @@ class Diet extends Component {
                                     <div className="custom-separator my-4 mx-auto bg-primary"></div>
                                     <h4>Breakfast</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Protein smoothie</li>
-                                        <li className="mb-3">Craig McMuffin</li>
+                                        <li className="mb-3">Protein smoothie with Craig McMuffin</li>
                                     </ul>
                                     <hr/>
                                     <h4>Lunch</h4>
@@ -186,14 +183,12 @@ class Diet extends Component {
                                     <hr/>
                                     <h4>Dinner</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Portabella Pizza</li>
-                                        <li className="mb-3">Corn soup</li>
+                                        <li className="mb-3">Portabella Pizza with corn soup</li>
                                     </ul>
                                     <hr/>
                                     <h4>Snacks 1:</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Banana</li>
-                                        <li className="mb-3">1 Tbsp Nut Butter</li>
+                                        <li className="mb-3">Banana with 1 Tbsp Nut Butter</li>
                                     </ul>
                                     <hr/>
                                     <h4>Snacks 2:</h4>
@@ -209,8 +204,7 @@ class Diet extends Component {
                                     <div className="custom-separator my-4 mx-auto bg-primary"></div>
                                     <h4>Breakfast</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Protein smoothie</li>
-                                        <li className="mb-3">Joys Protien Pancakes</li>
+                                        <li className="mb-3">Protein smoothie with Joys Protien Pancakes</li>
                                     </ul>
                                     <hr/>
                                     <h4>Lunch</h4>
@@ -220,20 +214,17 @@ class Diet extends Component {
                                     <hr/>
                                     <h4>Dinner</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Veggie Burgers</li>
-                                        <li className="mb-3">Steak</li>
-                                        <li className="mb-3">Quinoa and Edamame</li>
+                                        <li className="mb-3">Veggie Burgers with steak and Quinoa and Edamame</li>
                                     </ul>
                                     <hr/>
                                     <h4>Snacks 1:</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">1-2 cups Lentil</li>
-                                        <li className="mb-3">Black Bean Soup</li>
+                                        <li className="mb-3">1-2 cups Lentil with Black Bean Soup</li>
                                     </ul>
                                     <hr/>
                                     <h4>Snacks 2:</h4>
                                     <ul className="list-styled text-small text-left">
-                                        <li className="mb-3">Chocolate Protien Muffin</li>
+                                        <li className="mb-3">Chocolate Protien Muffin and two banana</li>
                                     </ul>
                                 </div>
                             </div>
