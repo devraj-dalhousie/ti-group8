@@ -25,6 +25,26 @@ class Profile extends Component {
                         <label>Height(in cm)</label>
                         <input type="text" id="height" className="profile-form-group" placeholder="Enter height (in cm)" />
                     </div>
+                    <hr/>
+                    <div className={"profile-form-group"}>
+                        <div className={"doYouWear"}>
+                            <label>Do you wear wearables?</label>
+                            <label htmlFor="yes">Yes</label>
+                            <input type="radio" name="doYouWear" id="yes" value="yes" />
+                            <label htmlFor="no">No</label>
+                            <input type="radio" name="doYouWear" id="no" value="no"/>
+                        </div>
+                        <small>(By answering this question you give your consent to track the data from the wearable device.)</small>
+                    </div>
+                    <hr/>
+                    <label htmlFor="devices">Which wearable device do you wear:</label>
+                    <select name="devices" id="devices">
+                        <option value="apple">Apple Watch</option>
+                        <option value="fitbit">Fitbit</option>
+                        <option value="samsung">Samsung Watch</option>
+                        <option value="xiaomi">Xiaomi Smart Band</option>
+                        <option value="goqii">Goqii</option>
+                    </select>
                 <hr/>
                     <div className={"profile-form-group"}>
                         <div className={"gender"}>

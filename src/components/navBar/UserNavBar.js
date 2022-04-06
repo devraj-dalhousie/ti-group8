@@ -14,6 +14,9 @@ function UserNavbar() {
                                     <Link className="nav-link" to={"/profile"}>Profile</Link>
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link" to={"/activity"}>Activity</Link>
+                                </li>
+                                <li className="nav-item">
                                     <Link className="nav-link" to={"/diet"}>Diet</Link>
                                 </li>
                                 <li className="nav-item">

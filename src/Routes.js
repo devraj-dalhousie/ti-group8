@@ -11,6 +11,7 @@ import Fitness from "./pages/fitness/fitness";
 import Profile from "./pages/profile/profile";
 import Subcribe from "./pages/subscribe/subcribe";
 import Payment from "./pages/payment/payment";
+import Activity from "./pages/activity/activity";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/subscribe" element={<Subcribe />} />
       <Route path="/pay" element={<Payment/>} />
+          <Route path="/activity" element={<Activity />} />
       </Routes>
   );
 }
