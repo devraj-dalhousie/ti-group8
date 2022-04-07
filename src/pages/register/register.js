@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import './register.css';
 import {Link} from "react-router-dom";
+import axios from "axios";
+import RegSuccess from "./regSuccess";
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -20,13 +22,15 @@ export default class SignUp extends Component {
         this.setState({value: event.target.value});
     }
 
-    validateForm(event) {
+    async validateForm(event) {
         event.preventDefault();
         const fname = document.getElementById("fname");
         if (this.checkNotEmpty(fname.value) === false) {
             this.setError(fname, "First Name is a mandatory field.");
+            return;
         } else if (this.checkIfAlphaNumeric(fname.value) === false) {
             this.setError(fname, "First Name must contain only alphanumeric characters");
+            return;
         } else {
             this.removeError(fname);
             this.state.fname = fname.value;
@@ -35,12 +39,15 @@ export default class SignUp extends Component {
         const lname = document.getElementById("lname");
         if (this.checkNotEmpty(lname.value) === false) {
             this.setError(lname, "Last Name is a mandatory field.");
+            return;
         } else if (this.checkIfAlphaNumeric(lname.value) === false) {
             this.setError(lname, "Last Name must contain only alphanumeric characters");
+            return
         } else {
             this.removeError(lname);
             this.state.lname = lname.value;
         }
+        const name = fname.value + " " + lname.value;
 
         const email = document.getElementById("email");
         if (this.checkNotEmpty(email.value) === false) {
@@ -61,6 +68,32 @@ export default class SignUp extends Component {
             this.removeError(password1);
             this.state.password1 = password1.value;
         }
+
+        //const loginUrl = "http://localhost:8080/profile";
+        const loginUrl = "https://ti8-backend.herokuapp.com/profile";
+        const payload = {
+            'name': name,
+            'email': email.value,
+            'password': password1.value,
+        };
+        console.log(payload)
+        await axios.post(loginUrl, payload)
+            .then(response => {
+                if (response.status === 200) {
+                    console.log("Registration successful successful");
+                    this.setState({redirect: true});
+                } else {
+                    console.log("registration failed");
+                    const top = document.getElementById("top")
+                    this.setError(top, "Invalid credentials.");
+                    this.setState({redirect: false})
+                }
+            }).catch(error => {
+                console.log("Error while registration.");
+                const top = document.getElementById("top")
+                this.setError(top, "Invalid credentials.");
+                this.setState({redirect: false})
+            });
     }
 
     setError(input, message) {
@@ -103,6 +136,13 @@ export default class SignUp extends Component {
     }
 
     render() {
+        if(this.state.redirect) {
+            return (
+                <div>
+                    <RegSuccess />
+                </div>
+            )
+        }
         return (
             <div className={"register-form"}>
             <form onSubmit={this.validateForm}>

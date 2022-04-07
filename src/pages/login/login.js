@@ -16,7 +16,6 @@ export default class Login extends Component {
         this.checkNotEmpty = this.checkNotEmpty.bind(this);
         this.doBasicValidation = this.doBasicValidation.bind(this);
         this.authValidation = this.authValidation.bind(this);
-        this.authValidation1 = this.authValidation1.bind(this);
     }
 
     handleChange(event) {
@@ -30,63 +29,39 @@ export default class Login extends Component {
             console.log("Basic validation failed.")
             return;
         }
-        //this.authValidation();
+        console.log("Basic validation passed");
     }
 
     async authValidation() {
         this.setState({redirect: true});
-        return;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        console.log(email);
-        console.log(password);
-        const loginUrl = "https://tutorial4-api.herokuapp.com/api/users/login";
+        //const loginUrl = "https://ti8-backend.herokuapp.com/profile/login";
+        const loginUrl = "http://localhost:8080/profile/login";
         const payload = {
             'email': email,
             'password': password
         };
         await axios.post(loginUrl, payload)
             .then(response => {
-                console.log("Login response: " + response.status);
-                console.log("Login response1: " + response.data);
-                console.log("Login response2: " + response.statusText);
                 if (response.status === 200 && response.statusText === 'OK') {
                     console.log("Login successful");
                     this.setState({redirect: true});
                 } else {
                     console.log("Login failed");
-                    document.getElementById('cred-error').style.visibility = 'visible';
+                    const top = document.getElementById("top")
+                    this.setError(top, "Invalid credentials.");
                     this.setState({redirect: false})
                 }
             }).catch(error => {
                 console.log("Error: " + error);
-                document.getElementById('cred-error').style.visibility = 'visible';
+                const top = document.getElementById("top")
+                this.setError(top, "Invalid credentials.");
+                this.setState({redirect: false})
             });
     }
 
-    authValidation1() {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({
-            "email": "jaswanth106@gmail.com",
-            "password": "Password"
-        });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("https://tutorial4-api.herokuapp.com/api/users/login", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log("Results:", result))
-            .catch(error => console.log('error', error));
-    }
-
-    doBasicValidation() {
+    async doBasicValidation() {
         console.log("Doing basic validation");
         const email = document.getElementById("email");
         if (this.checkNotEmpty(email.value) === false) {
@@ -103,23 +78,39 @@ export default class Login extends Component {
             this.removeError(password);
             this.setState({"password": password.value});
         }
-        const top = document.getElementById("top");
-        if((email.value !== "" && password.value !== "") && email.value === 'admin@gmail.com' && password.value === 'admin123') {
-            this.removeError(password);
-            this.removeError(email);
-            this.removeError(top);
-            this.setState({"email": email.value});
-            this.setState({"password": password.value});
-            this.setState({redirect: true});
-        } else {
-            this.setState({redirect: false});
-            this.setError(top, "Invalid credentials.");
-        }
+        const loginUrl = "https://ti8-backend.herokuapp.com/profile/login";
+        //const loginUrl = "http://localhost:8080/profile/login";
+        const payload = {
+            'email': email.value,
+            'password': password.value
+        };
+        console.log(email.value)
+        console.log(password.value)
+        await axios.post(loginUrl, payload)
+            .then(response => {
+                if (response.status === 200) {
+                    console.log("Login successful");
+                    this.setState({redirect: true});
+                } else {
+                    console.log("Login failed");
+                    const top = document.getElementById("top")
+                    this.setError(top, "Invalid credentials.");
+                    this.setState({redirect: false})
+                }
+            }).catch(error => {
+                console.log("Error while login.");
+                const top = document.getElementById("top")
+                this.setError(top, "Invalid credentials.");
+                this.setState({redirect: false})
+            });
 
         return this.state.basicValidation;
     }
 
     setError(input, message) {
+        if(input === null) {
+            console.error(input + " is null. Please debug.")
+        }
         const e = input.parentElement;
         e.className = 'form-group error'
         const errMsg = e.querySelector('small');

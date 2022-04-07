@@ -12,6 +12,7 @@ import Profile from "./pages/profile/profile";
 import Subcribe from "./pages/subscribe/subcribe";
 import Payment from "./pages/payment/payment";
 import Activity from "./pages/activity/activity";
+import HealthDetailsSuccess from "./pages/profile/healthDetailsSuccess";
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
       <Route path="/subscribe" element={<Subcribe />} />
       <Route path="/pay" element={<Payment/>} />
           <Route path="/activity" element={<Activity />} />
+          <Route path="/healthsucc" element={<HealthDetailsSuccess />} />
       </Routes>
   );
 }

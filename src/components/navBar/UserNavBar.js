@@ -11,7 +11,7 @@ function UserNavbar() {
                         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
-                                    <Link className="nav-link" to={"/profile"}>Profile</Link>
+                                    <Link className="nav-link" to={"/subscribe"}>Pricing</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to={"/activity"}>Activity</Link>
@@ -20,10 +20,10 @@ function UserNavbar() {
                                     <Link className="nav-link" to={"/diet"}>Diet</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to={"/fitness"}>Fitness</Link>
+                                    <Link className="nav-link" to={"/profile"}>Profile</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to={"/subscribe"}>Pricing</Link>
+                                    <Link className="nav-link" to={"/fitness"}>Fitness</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to={"/about"}>About us</Link>

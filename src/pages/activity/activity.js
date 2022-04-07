@@ -17,6 +17,10 @@ class Activity extends Component {
                             <th>Value</th>
                         </tr>
                         <tr>
+                            <td>BMI value</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
                             <td>Your avg daily steps(last 10 days)</td>
                             <td>7562</td>
                         </tr>

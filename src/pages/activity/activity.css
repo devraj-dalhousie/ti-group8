@@ -12,7 +12,10 @@
 .health-metrics {
     width: 80%;
 }
-
+table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
 
 th {
     color: #514B64;

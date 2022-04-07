@@ -2,9 +2,28 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import './profile.css';
 import UserNavbar from '../../components/navBar/UserNavBar';
+import HealthDetailsSuccess from "./healthDetailsSuccess";
 
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {redirect: false};
+        this.validateForm = this.validateForm.bind(this);
+    }
+
+    async validateForm(event) {
+        event.preventDefault();
+        this.setState({redirect: true});
+    }
+
     render() {
+        if(this.state.redirect) {
+            return (
+                <div>
+                    <HealthDetailsSuccess />
+                </div>
+            )
+        }
         return (
             <div>
             <UserNavbar />

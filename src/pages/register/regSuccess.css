@@ -1,9 +1,7 @@
-.profile-form {
-    width: 600px;
-    position: absolute;
+.profile-success {
+    width: 450px;
     margin: auto;
-    top: 13%;
-    left: 36%;
+    margin-top: 100px;
     background: #ffffff;
     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
     padding: 40px 55px 45px 55px;
