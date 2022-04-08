@@ -3,8 +3,6 @@ import UserNavbar from '../../components/navBar/UserNavBar';
 import './home.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import {CanvasJSChart} from 'canvasjs-react-charts'
-import ReactApexChart from 'react-apexcharts';
 
 
 function Home () {
@@ -45,7 +43,10 @@ function Home () {
         },[]);
     
     const getFitnessData = () =>{
-        axios.get(baseURL + "/getFitnessData", { params: { age: 42 } })
+        const user = localStorage.getItem('email');
+        const userAge = localStorage.getItem(user+'-age');
+        const isGain = localStorage.getItem(user+'-healthGoal').includes('gain') ? true : false;
+        axios.get(baseURL + "/getFitnessData", { params: { age: userAge, gainOrLoss: isGain} })
         .then(result => {
             fitnessData = result.data;
             setFitnessData();
@@ -57,7 +58,11 @@ function Home () {
     }
 
     const getDietData = () =>{
-        axios.get(baseURL + "/getDietData", { params: { age: 42 } })
+        const user = localStorage.getItem('email');
+        const goal = localStorage.getItem(user+'-healthGoal');
+        const healthGoalParam = goal.includes('Weight loss') ? 
+        (goal.includes('non-vegetarian diet') ? 'non-veg loss' : 'veg loss' ): (goal.includes('non-vegetarian diet') ? 'non-veg gain' : 'veg gain');
+        axios.get(baseURL + "/getDietData", { params: { healthGoal: healthGoalParam } })
         .then(result => {
             dietData = result.data;
             setDietData();
@@ -119,6 +124,9 @@ function Home () {
             <div>
             <UserNavbar />
             <div className={"home-page"} id='homePage' name={localStorage.getItem('email')}>
+            {/* <div id="chart" style={{border:'1px solid',padding:'10px',boxShadow:'1px 1px #888888'}}>
+            <h3>Calories Burnt</h3>
+            </div> */}
             <div style={{paddingTop:'120px'}}>
                <h2 style={{textAlign:'center'}}>Your Fitness Plan:</h2><br />
                <select name="day" id="fitness-day" onChange={setAllData}>
@@ -130,23 +138,23 @@ function Home () {
                     <option value="Saturday">Saturday</option>
                     <option value="Sunday">Sudnday</option>
                 </select>
-                <table class="table">
-                    <thead class="thead-dark">
+                <table style={{textAlign:'center',borderCollapse:'collapse'}}>
+                    
                         <tr>
                         <th style={{fontSize:'15pt'}}>Exercise</th>
                         <th style={{fontSize:'15pt'}}>Repititions</th>
                         <th style={{fontSize:'15pt'}}>Sets</th>
                         <th style={{fontSize:'15pt'}}>Gap between Sets (min)</th>
                         </tr>
-                    </thead>
+                    
                     <tbody id='fitnessData'>
                     </tbody>
                 </table>
                 <h2 style={{textAlign:'center'}}><p id='restDays'></p></h2>
 
                 <h2 style={{textAlign:'center'}}>Your Diet Plan:</h2>
-                <table class="table">
-                    <thead class="thead-dark">
+                <table style={{textAlign:'center',borderCollapse:'collapse'}}>
+                    
                         <tr>
                         <th style={{fontSize:'15pt'}}>Breakfast</th>
                         <th style={{fontSize:'15pt'}}>Lunch</th>
@@ -154,7 +162,7 @@ function Home () {
                         <th style={{fontSize:'15pt'}}>Snacks 1</th>
                         <th style={{fontSize:'15pt'}}>Snacks 2</th>
                         </tr>
-                    </thead>
+                    
                     <tbody id='dietData'>
                     </tbody>
                 </table>
