@@ -6,11 +6,10 @@ import axios from "axios";
 
 
 function Home () {
-    const error = '';
     let fitnessData = {};
     let dietData = {};
     let fitnessLabel = []
-    const baseURL = "http://localhost:8080"
+    const baseURL = "https://ti8-backend.herokuapp.com"
     var React = require('react');
     let caloriePieData = {
           
