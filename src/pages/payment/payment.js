@@ -23,7 +23,7 @@ export default class Payment extends Component {
                                     </div>
                                 </div>
                                 <div className="panel-body">
-                                    <form role="form">
+                                    <form>
                                         <div className="row">
                                             <div className="col-xs-12">
                                                 <div className="form-group">

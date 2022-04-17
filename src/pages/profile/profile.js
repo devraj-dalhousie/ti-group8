@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import { useState, useEffect } from 'react'
-import {Link} from "react-router-dom";
 import './profile.css';
 import UserNavbar from '../../components/navBar/UserNavBar';
 

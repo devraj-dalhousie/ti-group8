@@ -122,13 +122,13 @@ export default class Login extends Component {
         const errMsg = e.querySelector('small');
         errMsg.innerText = message
         errMsg.color='red'
-        this.state.basicValidation = false;
+        this.setState({basicValidation: false})
     }
 
     removeError(input) {
         const e = input.parentElement;
         e.className = 'form-group success'
-        this.state.basicValidation = true;
+        this.setState({basicValidation: true})
     }
 
     checkNotEmpty(value) {
@@ -170,7 +170,7 @@ export default class Login extends Component {
 
                 <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
                 <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
+                    Forgot <a href="https://diet-plan-ti8.herokuapp.com/sign-in">password?</a>
                 </p>
                 <p className="new-user text-right">
                     New User? <Link to={"/sign-up"}>Sign up</Link>

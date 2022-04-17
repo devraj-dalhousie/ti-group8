@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import UserNavbar from '../../components/navBar/UserNavBar';
 import './home.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -34,12 +34,12 @@ function Home () {
         },
       };
     const [loadPie, setLoadPie]= useState(false);
-
+    console.log(loadPie);
     useEffect(() => {
         validateUser();
         getFitnessData();
         getDietData();
-        },[]);
+        });
     
     const getFitnessData = () =>{
         const user = localStorage.getItem('email');
@@ -115,9 +115,10 @@ function Home () {
         getDietData();
     }
 
-    const checkNotEmpty = (value) => {
+    /*const checkNotEmpty = (value) => {
         return value.trim() !== "";
-    }
+    }*/
+
 
     return(
             <div>
